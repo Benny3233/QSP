@@ -1,0 +1,26 @@
+import java.util.*;
+class WaterTracking
+{
+	public static void main(String[] args ){
+ int bd[]={4,2,0,6,3,2,5};
+ int sum=0;
+int lmax[]=new int[bd.length];
+int rmax[]=new int[bd.length];
+lmax[0]=bd[0];
+rmax[rmax.length-1]= bd[bd.length-1];	
+for(int i=1;i<lmax.length;i++){
+	lmax[i]=Math.max(bd[i],lmax[i-1]);
+}
+System.out.println(Arrays.toString(lmax));
+for(int j=rmax.length-2;j>=0;j--){
+	rmax[j]=Math.max(bd[j],rmax[j+1]);
+}
+System.out.println(Arrays.toString(rmax));
+for(int k=0;k<bd.length;k++){
+sum+=Math.min(lmax[k],rmax[k])-bd[k];
+}
+System.out.println(sum);
+
+}
+}
+
